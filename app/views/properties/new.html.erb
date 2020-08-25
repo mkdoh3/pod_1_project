@@ -1,0 +1,16 @@
+<h1>New Property</h1>
+<%=form_for @property do |f|%>
+  <%=f.label :address%>
+  <%=f.text_field :address%>
+  <%=f.label :unit_number%>
+  <%=f.text_field :unit_number%>
+  <%=f.label :monthly_cost%>
+  <%=f.number_field :monthly_cost%>
+  <%=f.label :num_bedrooms%>
+  <%=f.number_field :num_bedrooms%>
+  <%=f.label :num_bathroom%>
+  <%=f.number_field :num_bathroom%>
+  <%=f.label :square_footage%>
+  <%=f.number_field :square_footage%>
+  <%=f.submit%>
+<%end%>
