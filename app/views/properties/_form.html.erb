@@ -1,0 +1,21 @@
+<%=form_for @property do |f|%>
+    <%=f.label :address%>
+    <%=f.text_field :address%>
+    <br>
+    <%=f.label :unit_number%>
+    <%=f.text_field :unit_number%>
+    <br>
+    <%=f.label :monthly_cost%>
+    <%=f.number_field :monthly_cost%>
+    <br>
+    <%=f.label :num_bedrooms%>
+    <%=f.number_field :num_bedrooms%>
+    <br>
+    <%=f.label :num_bathroom%>
+    <%=f.number_field :num_bathroom%>
+    <br>
+    <%=f.label :square_footage%>
+    <%=f.number_field :square_footage%>
+    <br>
+    <%=f.submit%>
+<%end%>
