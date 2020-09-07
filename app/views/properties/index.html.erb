@@ -1,23 +1,7 @@
 <h2>All Properties</h2>
 <% @properties.each do |property| %>
-    <label>Address: </label>
-    <%= property.address %>
-    <br>
-    <label>Unit Number: </label>
-    <%= property.unit_number %>
-    <br>
-    <label>Monthly Cost: </label>
-    <%= property.monthly_cost %>
-    <br>
-    <label>Bedrooms: </label>
-    <%= property.num_bedrooms %>
-    <br>
-    <label>Bathrooms: </label>
-    <%= property.num_bathroom %>
-    <br>
-    <label>Unit Number: </label>
-    <%= property.square_footage %>
-    <br>
+    <%= render partial: 'display_form', locals: {property: property} %>
+
     <%= link_to 'This Property?', property_path(property)%>
     <br>
     <br>
