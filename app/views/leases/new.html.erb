@@ -3,10 +3,13 @@
 <%= form_for @lease do |f|%>
 <%= f.label :start_date %>
 <%= f.text_field :start_date %>
+<br>
 <%= f.label :contract_length %>
 <%= f.number_field :contract_length %>
+<br>
 <%= f.label "Num Of Tenets" %>
 <%= f.number_field :num_tenets %>
+<br>
 <%= f.label "Select Property"%>
 <%= f.collection_select :property_id, Property.all, :id, :address, include_blank: true %>
 <%= f.fields_for :property, Property.new do |property_fields| %>
