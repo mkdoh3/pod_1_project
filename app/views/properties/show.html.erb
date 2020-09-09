@@ -1,4 +1,4 @@
 <h2>This Property</h2>
 <%= render partial: 'display_form', locals: {property: @property} %>
-
 <%= button_to 'Delete', property_path(@property), method: :delete %>
+<%=link_to "New Lease", new_property_lease_path(@property)%>

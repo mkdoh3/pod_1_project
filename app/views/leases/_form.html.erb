@@ -1,34 +1,40 @@
-<%= form_for @lease do |f|%>
-<%= f.label :start_date %>
-<%= f.text_field :start_date %>
-<br>
-<%= f.label :contract_length %>
-<%= f.number_field :contract_length %>
-<br>
-<%= f.label "Num Of Tenets" %>
-<%= f.number_field :num_tenets %>
-<br>
-<%= f.label "Select Property"%>
-<%= f.collection_select :property_id, Property.all, :id, :address, include_blank: true %>
-<br>
-<%= f.fields_for :property, Property.new do |property_fields| %>
- <%=property_fields.label :address%>
-    <%=property_fields.text_field :address%>
+<%= form_for lease do |f|%>
+  <%= f.label :start_date %>
+  <%= f.date_field :start_date %>
+  <br>
+  <%= f.label :contract_length %>
+  <%= f.number_field :contract_length %>
+  <br>
+  <%= f.label "Num Of Tenets" %>
+  <%= f.number_field :num_tenets %>
+  <br>
+  <%if @property%>
+    <%=f.hidden_field :property_id, value: @property.id%>
+  <%else%>
+    <h3>Select Existing Property</h3>
+    <%= f.label "Select Property"%>
+    <%= f.collection_select :property_id, Property.all, :id, :address, include_blank: true %>
     <br>
-    <%=property_fields.label :unit_number%>
-    <%=property_fields.text_field :unit_number%>
-    <br>
-    <%=property_fields.label :monthly_cost%>
-    <%=property_fields.number_field :monthly_cost%>
-    <br>
-    <%=property_fields.label :num_bedrooms%>
-    <%=property_fields.number_field :num_bedrooms%>
-    <br>
-    <%=property_fields.label :num_bathroom%>
-    <%=property_fields.number_field :num_bathroom%>
-    <br>
-    <%=property_fields.label :square_footage%>
-    <%=property_fields.number_field :square_footage%>
+    <h3>Or, Create a New One</h3>
+    <%= f.fields_for :property, Property.new do |property_fields| %>
+      <%=property_fields.label :address%>
+      <%=property_fields.text_field :address%>
+      <br>
+      <%=property_fields.label :unit_number%>
+      <%=property_fields.text_field :unit_number%>
+      <br>
+      <%=property_fields.label :monthly_cost%>
+      <%=property_fields.number_field :monthly_cost%>
+      <br>
+      <%=property_fields.label :num_bedrooms%>
+      <%=property_fields.number_field :num_bedrooms%>
+      <br>
+      <%=property_fields.label :num_bathroom%>
+      <%=property_fields.number_field :num_bathroom%>
+      <br>
+      <%=property_fields.label :square_footage%>
+      <%=property_fields.number_field :square_footage%>
     <% end %>
-<%=  f.submit %>
+  <%end%>
+  <%=  f.submit %>
 <% end %>

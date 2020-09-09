@@ -1,3 +1,6 @@
-<h1> Create a Lease </h1>
-
-<%= render 'form'%>
+<%if @property%>
+  <h1> Create a Lease for <%=@property.address%></h1>
+<%else%>
+  <h1> Create a Lease </h1>
+<%end%>
+<%= render partial: 'form', locals: { lease: @lease} %>
