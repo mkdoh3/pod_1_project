@@ -22,7 +22,7 @@ class PropertiesController < ApplicationController
     @property = Property.find_by_id(params[:id])
   end
 
-  def update 
+  def update
     @property = Property.find_by_id(params[:id])
 
     if @property.update(property_params)
@@ -38,7 +38,7 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property = Property.find_by_id(params[:id])
-    
+
     @property.destroy
 
     redirect_to properties_path

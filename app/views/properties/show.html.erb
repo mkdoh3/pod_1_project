@@ -1,21 +1,4 @@
 <h2>This Property</h2>
-
-<label>Address: </label>
-<%= @property.address %>
-<br>
-<label>Unit Number: </label>
-<%= @property.unit_number %>
-<br>
-<label>Monthly Cost: </label>
-<%= @property.monthly_cost %>
-<br>
-<label>Bedrooms: </label>
-<%= @property.num_bedrooms %>
-<br>
-<label>Bathrooms: </label>
-<%= @property.num_bathroom %>
-<br>
-<label>Unit Number: </label>
-<%= @property.square_footage %>
-<br>
+<%= render partial: 'display_form', locals: {property: @property} %>
 <%= button_to 'Delete', property_path(@property), method: :delete %>
+<%=link_to "New Lease", new_property_lease_path(@property)%>

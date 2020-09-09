@@ -1,0 +1,32 @@
+<h1>All Leases</h1>
+<div>
+    <% @leases.each do |lease| %>
+        <label>Start Date: </label>
+        <%= lease.start_date %>
+        <br>
+        <label>Contract Length: </label>
+        <%= lease.contract_length %>
+        <br>
+        <label>Number of Tenents: </label>
+        <%= lease.num_tenets %>
+        <br>
+        <label>Property Address: </label>
+        <%= lease.property.address %>
+        <br>
+        <label>Property Unit Number: </label>
+        <%= lease.property.unit_number %>
+        <br>
+        <label>Property Monthly Cost: </label>
+        <%= lease.property.monthly_cost %>
+        <br>
+        <label>Property Number of Bedrooms: </label>
+        <%= lease.property.num_bedrooms %>
+        <br>
+        <label>Property Number of Bathrooms: </label>
+        <%= lease.property.num_bathroom %>
+        <br>
+        <label>Property Square Footage: </label>
+        <%= lease.property.square_footage %>
+        <br>
+    <% end %>
+</div>

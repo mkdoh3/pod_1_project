@@ -1,33 +1,6 @@
-<h1> Create a Lease </h1>
-
-<%= form_for @lease do |f|%>
-<%= f.label :start_date %>
-<%= f.text_field :start_date %>
-<%= f.label :contract_length %>
-<%= f.number_field :contract_length %>
-<%= f.label "Num Of Tenets" %>
-<%= f.number_field :num_tenets %>
-<%= f.label "Select Property"%>
-<%= f.collection_select :property_id, Property.all, :id, :address, include_blank: true %>
-<%= f.fields_for :property, Property.new do |property_fields| %>
- <%=property_fields.label :address%>
-    <%=property_fields.text_field :address%>
-    <br>
-    <%=property_fields.label :unit_number%>
-    <%=property_fields.text_field :unit_number%>
-    <br>
-    <%=property_fields.label :monthly_cost%>
-    <%=property_fields.number_field :monthly_cost%>
-    <br>
-    <%=property_fields.label :num_bedrooms%>
-    <%=property_fields.number_field :num_bedrooms%>
-    <br>
-    <%=property_fields.label :num_bathroom%>
-    <%=property_fields.number_field :num_bathroom%>
-    <br>
-    <%=property_fields.label :square_footage%>
-    <%=property_fields.number_field :square_footage%>
-    <% end %>
-<%=  f.submit %>
-<% end %>
-
+<%if @property%>
+  <h1> Create a Lease for <%=@property.address%></h1>
+<%else%>
+  <h1> Create a Lease </h1>
+<%end%>
+<%= render partial: 'form', locals: { lease: @lease} %>
