@@ -1,10 +1,17 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  
+  root 'application#index'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#new'
+
   resources :leases
   resources :properties do
     resources :leases
   end
+
+  resources :properties
 
   resources :property_managers
 
